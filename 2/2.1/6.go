@@ -15,11 +15,8 @@ func main() {
 }
 
 func isAlmostHappy(n int, happy int) bool {
-	if happy == n {
-		return true
-	} else if happy > n/2 {
-		return false
-	} else if n%happy == 0 || isAlmostHappy(n, happy*10+4) || isAlmostHappy(n, happy*10+7) {
+	if happy == n || (!(happy > n/2) && (n%happy == 0 ||
+		isAlmostHappy(n, happy*10+4) || isAlmostHappy(n, happy*10+7))) {
 		return true
 	}
 	return false
